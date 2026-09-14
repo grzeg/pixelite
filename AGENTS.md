@@ -15,6 +15,15 @@ Brief marketingowy/treściowy: [docs/brand-brief.md](docs/brand-brief.md) — cz
 ## Kolorystyka i logo
 Realna paleta marki (nie wymyślać innych kolorów) i lista assetów: [docs/brand-brief.md](docs/brand-brief.md#kolorystyka). Tokeny CSS w [src/app/globals.css](src/app/globals.css) (`--brand-orange`, `--brand-orange-strong`, `--brand-cream`, `--brand-charcoal`). `--brand-orange` (#FF7600) nie ma wystarczającego kontrastu WCAG AA jako tekst/tło przycisku na jasnym tle — do tego służy `--brand-orange-strong` (#B85500), do czego mapuje się `--primary`. Nie używaj czystego `--brand-orange` na tekst/małe elementy interaktywne na jasnym tle.
 
+## i18n (PL/EN)
+Strona jest dwujęzyczna, routing `/pl/...` i `/en/...` (`src/app/[locale]/`, `src/middleware.ts`). Zasady:
+- Każdy nowy string UI-owy idzie do [src/i18n/dictionaries.ts](src/i18n/dictionaries.ts) (oba języki naraz, nie tylko PL) — nigdy nie hardkoduj tekstu bezpośrednio w JSX stron pod `[locale]`.
+- Każdy wewnętrzny link musi być prefiksowany locale: `` `/${locale}/portfolio` ``, nie `"/portfolio"`.
+- Nowe strony pod `[locale]` odczytują `params.locale`, walidują przez `isLocale()` (`notFound()` jeśli nie), i pobierają `getDictionary(locale)`.
+- `/studio` (Sanity) jest celowo POZA `[locale]` — to narzędzie admina, nie treść użytkownika, nie tłumacz go.
+- `middleware.ts` musi być w `src/`, nie w roocie repo (bo projekt używa katalogu `src/`) — inaczej Next.js go cicho ignoruje.
+- Treść portfolio jest per-locale w [src/content/portfolio.ts](src/content/portfolio.ts) (`Record<Locale, PortfolioEntry[]>`) — każdy nowy wpis dodaj w obu językach.
+
 ## Storybook
 Dla każdego nowego reużywalnego komponentu UI (`src/components/ui/*`, współdzielone komponenty jak `SiteHeader`) dodaj kolokowany `*.stories.tsx`. Wzorzec i zasady (tagi `ai-generated`/`needs-work`, dokładnie jeden `CssCheck` na projekt, kiedy pisać `play`) zgodnie z tym, co ustawił `npx storybook skills setup` — sprawdź istniejące pliki w `src/components/**/*.stories.tsx` jako wzór. Po dodaniu story uruchom `npx vitest --project storybook run` przed uznaniem zadania za skończone.
 

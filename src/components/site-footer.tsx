@@ -1,21 +1,27 @@
+import { Mail } from "lucide-react";
+
+import { CORNER_CLUSTER } from "@/components/corner-cluster";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-2 px-6 py-6 text-sm text-muted-foreground sm:flex-row sm:justify-between">
-        <span>
-          © {new Date().getFullYear()} {siteConfig.name}
-        </span>
-        <div className="flex gap-4">
-          <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
-            LinkedIn
-          </a>
-          <a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">
-            {siteConfig.email}
-          </a>
-        </div>
+    <>
+      <div aria-label="Social media" className={`fixed bottom-6 left-6 z-20 ${CORNER_CLUSTER}`}>
+        <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:opacity-80">
+          <LinkedinIcon className="size-5" />
+        </a>
+        <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:opacity-80">
+          <GithubIcon className="size-5" />
+        </a>
+        <a href={`mailto:${siteConfig.email}`} aria-label="E-mail" className="hover:opacity-80">
+          <Mail className="size-5" strokeWidth={1.75} />
+        </a>
       </div>
-    </footer>
+
+      <p className="fixed bottom-6 right-6 z-20 text-sm text-white/70">
+        © {new Date().getFullYear()} {siteConfig.name}
+      </p>
+    </>
   );
 }

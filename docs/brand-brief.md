@@ -85,7 +85,15 @@ Pełnoekranowy splash (osobny layout, bez wspólnego headera/footera z resztą s
 - Animacja **particles** na całą stronę: biała sieć cząstek (canvas, wyłączana przy `prefers-reduced-motion`). Komponent: [src/components/particle-field.tsx](../src/components/particle-field.tsx) — kolory/gęstość konfigurowalne przez propsy.
 - Logo (symbol, nie pełny lockup) wyśrodkowane — dokładnie tak jak w oficjalnych plikach marki (`Pixelite Logo Symbol` na pomarańczowym tle).
 - Menu (Portfolio/Blog/Kontakt) w prawym górnym rogu, sociale (LinkedIn/GitHub/e-mail) w lewym dolnym — obie grupy w białych "pigułkach" (`bg-black/15` + blur) dla czytelności, bo czysta biel na `#FF7600` nie przechodzi WCAG AA dla drobnego tekstu.
-- Pozostałe podstrony (Portfolio/Blog/Kontakt) mają zwykły, jasny layout ze wspólnym headerem/footerem (`src/app/(site)/layout.tsx`) — to jest wyłącznie wariant strony głównej.
+- Pozostałe podstrony (Portfolio/Blog/Kontakt) dostały tę samą kolorystykę: pomarańczowe tło + particles widoczne w marginesach/nav/footer, ale centralna treść siedzi w statycznym białym "oknie" w stylu IDE (ciemny pasek tytułowy, kolorowe traffic-lights, zakładka z monospace ścieżką pliku, np. `~/pixelite/portfolio.tsx`) które zasłania particles i jest czytelne. Komponent: [src/components/content-window.tsx](../src/components/content-window.tsx) (`ContentWindowBold`, wybrany wariant — jest też `ContentWindowSubtle` jako mniej wyrazista alternatywa). Layout: `src/app/[locale]/(site)/layout.tsx`.
+
+## Internacjonalizacja (i18n)
+- Dwa języki: **PL i EN**, oba jawne w URL (`/pl/...`, `/en/...`), bez domyślnego bez-prefiksowego — `/` przekierowuje wg `Accept-Language` przez `src/middleware.ts` (uwaga: middleware musi siedzieć w `src/`, nie w roocie repo, bo projekt używa katalogu `src/`).
+- Przełącznik języka: [src/components/locale-switcher.tsx](../src/components/locale-switcher.tsx), widoczny w rogu nav (home i podstrony).
+- Słowniki UI: [src/i18n/dictionaries.ts](../src/i18n/dictionaries.ts). Treść bio na stronie głównej oparta na realnym CV (PL/ENG) usera.
+- Portfolio: [src/content/portfolio.ts](../src/content/portfolio.ts) — wpisy trzymane per-locale (`Record<Locale, PortfolioEntry[]>`), `getPortfolioEntries(locale)`.
+- Blog (Sanity): schema `post` ma pole `language` (`pl`/`en`), query filtruje po nim — każdy wpis blogowy trzeba będzie utworzyć osobno per język w Studio.
+- Routing: `src/app/[locale]/layout.tsx` to właściwy root layout (ustawia `<html lang>`, `generateStaticParams` dla `pl`/`en`). `/studio` celowo POZA `[locale]` (własny root layout w `src/app/studio/layout.tsx`) — to narzędzie admina, nie treść do tłumaczenia.
 
 ## Stack techniczny
 Next.js + TypeScript + Tailwind + shadcn/ui + Vercel + Storybook (dokumentacja/testy komponentów UI).
@@ -93,8 +101,9 @@ Next.js + TypeScript + Tailwind + shadcn/ui + Vercel + Storybook (dokumentacja/t
 ## Decyzje techniczne (domknięte)
 - **Kontakt**: `mailto:` + LinkedIn + GitHub, bez formularza — minimalny koszt utrzymania, pasuje do spokojnego/inżynierskiego tonu. Form do rozważenia dopiero jeśli realnie zabraknie tego rozwiązania.
 - **Blog**: headless CMS **Sanity** (nie MDX) — jako świadoma "wprawka" (nowe narzędzie względem Contentfula znanego z portfolio), darmowy tier, Studio embedowane w repo pod `/studio`, integracja przez `next-sanity`.
+- **Dane kontaktowe**: realne wartości w [src/config/site.ts](../src/config/site.ts) — `grzegorz.martowski@gmail.com`, `github.com/grzeg`, LinkedIn.
 
 ## Otwarte pytania / do doprecyzowania
-- Liczba wpisów portfolio na start (MVP) — obecnie 1 przykładowy wpis w [src/content/portfolio.ts](../src/content/portfolio.ts) do zastąpienia realną treścią.
-- Zdjęcie autora na podstronie portfolio — do dodania po otrzymaniu materiału.
-- Dane kontaktowe (`email`, `linkedinUrl`, `githubUrl`, `fullName`) — TODO w [src/config/site.ts](../src/config/site.ts), do uzupełnienia realnymi wartościami.
+- Liczba wpisów portfolio na start (MVP) — obecnie 1 przykładowy wpis (PL+EN) w [src/content/portfolio.ts](../src/content/portfolio.ts) do zastąpienia realną treścią z CV.
+- Zdjęcie autora na podstronie portfolio — mamy je w plikach CV (PDF), do wyciągnięcia i dodania.
+- Sanity: trzeba założyć realny projekt (obecnie CMS nieskonfigurowany) i wpisać `NEXT_PUBLIC_SANITY_PROJECT_ID` w `.env.local`.

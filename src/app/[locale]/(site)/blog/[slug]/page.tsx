@@ -1,6 +1,7 @@
 import { PortableText, type PortableTextBlock } from "@portabletext/react";
 import { notFound } from "next/navigation";
 
+import { isLocale, type Locale } from "@/i18n/config";
 import { client } from "@/sanity/client";
 import { POST_QUERY } from "@/sanity/queries";
 
@@ -13,9 +14,15 @@ type Post = {
   body?: PortableTextBlock[];
 };
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = await client.fetch<Post | null>(POST_QUERY, { slug }).catch(() => null);
+const dateLocale: Record<Locale, string> = { pl: "pl-PL", en: "en-US" };
+
+export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const post = await client.fetch<Post | null>(POST_QUERY, { slug, language: locale }).catch(() => null);
 
   if (!post) {
     notFound();
@@ -27,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <h1 className="text-2xl font-medium">{post.title}</h1>
         {post.publishedAt ? (
           <time dateTime={post.publishedAt} className="text-sm text-muted-foreground">
-            {new Date(post.publishedAt).toLocaleDateString("pl-PL")}
+            {new Date(post.publishedAt).toLocaleDateString(dateLocale[locale])}
           </time>
         ) : null}
       </header>

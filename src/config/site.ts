@@ -1,9 +1,8 @@
-// TODO: uzupełnij prawdziwymi danymi przed publikacją — nie zgaduj tych wartości.
 export const siteConfig = {
   name: "Pixelite",
-  fullName: "TODO: Imię i nazwisko",
+  fullName: "Grzegorz Martowski",
   tagline: "Senior/Staff Engineer — React/Next.js, TypeScript, e-commerce",
-  email: "TODO@example.com",
-  linkedinUrl: "https://www.linkedin.com/in/TODO",
-  githubUrl: "https://github.com/TODO",
+  email: "grzegorz.martowski@gmail.com",
+  linkedinUrl: "https://www.linkedin.com/in/grzegorz-martowski-b961187a/",
+  githubUrl: "https://github.com/grzeg",
 } as const;
