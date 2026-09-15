@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 
 import "@/app/globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { siteConfig } from "@/config/site";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { localeAlternates } from "@/i18n/metadata";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -26,14 +28,31 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) return {};
 
   const dict = getDictionary(locale);
+  const ogLocale = locale === "pl" ? "pl_PL" : "en_US";
+
   return {
+    metadataBase: new URL(siteConfig.url),
     title: {
       default: dict.meta.homeTitle,
       template: `%s · ${dict.meta.homeTitle}`,
     },
     description: dict.meta.homeDescription,
     alternates: {
-      languages: { pl: "/pl", en: "/en" },
+      canonical: `/${locale}`,
+      languages: localeAlternates(""),
+    },
+    openGraph: {
+      type: "website",
+      siteName: dict.meta.homeTitle,
+      locale: ogLocale,
+      url: `/${locale}`,
+      title: dict.meta.homeTitle,
+      description: dict.meta.homeDescription,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.meta.homeTitle,
+      description: dict.meta.homeDescription,
     },
   };
 }

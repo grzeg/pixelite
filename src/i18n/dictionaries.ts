@@ -30,8 +30,11 @@ export type Dictionary = {
     homeTitle: string;
     homeDescription: string;
     portfolioTitle: string;
+    portfolioDescription: string;
     blogTitle: string;
+    blogDescription: string;
     kontaktTitle: string;
+    kontaktDescription: string;
   };
 };
 
@@ -63,10 +66,15 @@ const pl: Dictionary = {
   },
   meta: {
     homeTitle: "Pixelite",
-    homeDescription: "Senior/Staff Engineer — React/Next.js, TypeScript, e-commerce.",
+    homeDescription:
+      "Grzegorz Martowski — Senior Frontend Engineer / Tech Lead. 15 lat doświadczenia w e-commerce, płatnościach i React/Next.js/TypeScript.",
     portfolioTitle: "Portfolio",
+    portfolioDescription:
+      "Portfolio i przebieg kariery Grzegorza Martowskiego — Senior Frontend Engineer / Tech Lead, 15 lat w e-commerce i React/TypeScript.",
     blogTitle: "Blog",
+    blogDescription: "Notatki techniczne o React, Next.js, e-commerce i pracy z AI w codziennym developmencie.",
     kontaktTitle: "Kontakt",
+    kontaktDescription: "Skontaktuj się z Grzegorzem Martowskim — Senior Frontend Engineer / Tech Lead specjalizującym się w e-commerce.",
   },
 };
 
@@ -98,10 +106,15 @@ const en: Dictionary = {
   },
   meta: {
     homeTitle: "Pixelite",
-    homeDescription: "Senior/Staff Engineer — React/Next.js, TypeScript, e-commerce.",
+    homeDescription:
+      "Grzegorz Martowski — Senior Frontend Engineer / Tech Lead. 15 years of experience in e-commerce, payments, and React/Next.js/TypeScript.",
     portfolioTitle: "Portfolio",
+    portfolioDescription:
+      "Portfolio and career history of Grzegorz Martowski — Senior Frontend Engineer / Tech Lead, 15 years in e-commerce and React/TypeScript.",
     blogTitle: "Blog",
+    blogDescription: "Technical notes on React, Next.js, e-commerce, and working with AI in day-to-day development.",
     kontaktTitle: "Contact",
+    kontaktDescription: "Get in touch with Grzegorz Martowski — Senior Frontend Engineer / Tech Lead specializing in e-commerce.",
   },
 };
 

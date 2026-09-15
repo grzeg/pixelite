@@ -4,11 +4,18 @@ import { TimelineSplit } from "@/components/career/timeline-split";
 import { getCareer, getCertifications, getEducation, getLanguages } from "@/content/career";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { pageMetadata } from "@/i18n/metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return { title: getDictionary(locale).meta.portfolioTitle };
+  const dict = getDictionary(locale);
+  return pageMetadata({
+    locale,
+    path: "/portfolio",
+    title: dict.meta.portfolioTitle,
+    description: dict.meta.portfolioDescription,
+  });
 }
 
 export default async function PortfolioPage({ params }: { params: Promise<{ locale: string }> }) {

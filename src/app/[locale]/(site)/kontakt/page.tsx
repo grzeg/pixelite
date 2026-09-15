@@ -4,12 +4,19 @@ import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { pageMetadata } from "@/i18n/metadata";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return { title: getDictionary(locale).meta.kontaktTitle };
+  const dict = getDictionary(locale);
+  return pageMetadata({
+    locale,
+    path: "/kontakt",
+    title: dict.meta.kontaktTitle,
+    description: dict.meta.kontaktDescription,
+  });
 }
 
 const displayUrl = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
