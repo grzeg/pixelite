@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
+import { siteConfig } from "@/config/site";
 import { defaultLocale, locales, type Locale } from "@/i18n/config";
+
+export function ogLocaleFor(locale: Locale) {
+  return locale === "pl" ? "pl_PL" : "en_US";
+}
 
 // Buduje hreflang alternates (w tym x-default) dla danej ścieżki bez prefiksu
 // locale, np. path="/portfolio" -> { pl: "/pl/portfolio", en: "/en/portfolio", "x-default": "/pl/portfolio" }.
@@ -29,7 +34,6 @@ export function pageMetadata({
   title: string;
   description: string;
 }): Metadata {
-  const ogLocale = locale === "pl" ? "pl_PL" : "en_US";
   const url = canonicalPath(locale, path);
 
   return {
@@ -41,7 +45,8 @@ export function pageMetadata({
     },
     openGraph: {
       type: "website",
-      locale: ogLocale,
+      siteName: siteConfig.name,
+      locale: ogLocaleFor(locale),
       url,
       title,
       description,

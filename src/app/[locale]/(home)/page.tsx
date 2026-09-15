@@ -42,7 +42,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <div className="relative min-h-dvh w-full overflow-hidden bg-brand-orange">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
+      />
       <ParticleField
         className="absolute inset-0"
         count={90}
