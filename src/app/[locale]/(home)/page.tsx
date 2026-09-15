@@ -8,6 +8,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ParticleField } from "@/components/particle-field";
 import { siteConfig } from "@/config/site";
+import { getCareer } from "@/content/career";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -17,6 +18,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     notFound();
   }
   const dict = getDictionary(locale);
+  const currentRole = getCareer(locale)[0];
 
   const navItems = [
     { href: `/${locale}/portfolio`, label: dict.nav.portfolio },
@@ -24,8 +26,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     { href: `/${locale}/kontakt`, label: dict.nav.kontakt },
   ];
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.fullName,
+    alternateName: siteConfig.name,
+    jobTitle: dict.home.tagline,
+    url: `${siteConfig.url}/${locale}`,
+    sameAs: [siteConfig.linkedinUrl, siteConfig.githubUrl],
+    worksFor: {
+      "@type": "Organization",
+      name: currentRole.company,
+    },
+  };
+
   return (
     <div className="relative min-h-dvh w-full overflow-hidden bg-brand-orange">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
+      />
       <ParticleField
         className="absolute inset-0"
         count={90}
@@ -44,7 +64,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <div className="relative z-10 flex min-h-dvh flex-col items-center justify-center gap-6 px-6 text-center">
         <Image src="/brand/logo-symbol.svg" alt={siteConfig.name} width={140} height={161} className="h-24 w-auto sm:h-32" priority />
-        <p className="text-2xl font-semibold tracking-[0.2em] text-white uppercase sm:text-3xl">{siteConfig.name}</p>
+        <h1 className="text-2xl font-semibold tracking-[0.2em] text-white uppercase sm:text-3xl">{siteConfig.name}</h1>
         <p className="max-w-md text-sm text-white/80">{dict.home.tagline}</p>
       </div>
 

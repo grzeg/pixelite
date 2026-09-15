@@ -3,13 +3,20 @@ import { notFound } from "next/navigation";
 
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { pageMetadata } from "@/i18n/metadata";
 import { client, isSanityConfigured } from "@/sanity/client";
 import { POSTS_QUERY } from "@/sanity/queries";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return { title: getDictionary(locale).meta.blogTitle };
+  const dict = getDictionary(locale);
+  return pageMetadata({
+    locale,
+    path: "/blog",
+    title: dict.meta.blogTitle,
+    description: dict.meta.blogDescription,
+  });
 }
 
 type PostListItem = {
