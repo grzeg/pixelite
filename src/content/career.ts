@@ -24,6 +24,17 @@ export type Certification = {
   date: string;
 };
 
+export type EcosystemItem = {
+  label: string;
+  icon: "apple" | "webstorm" | "claude";
+};
+
+const ecosystem: EcosystemItem[] = [
+  { label: "MacBook / macOS", icon: "apple" },
+  { label: "JetBrains WebStorm", icon: "webstorm" },
+  { label: "Claude Code", icon: "claude" },
+];
+
 // Źródło: CV (PDF, PL/ENG) dostarczone przez usera. Chronologicznie od najnowszej.
 const career: Record<Locale, CareerEntry[]> = {
   pl: [
@@ -32,7 +43,7 @@ const career: Record<Locale, CareerEntry[]> = {
       company: "Xebia / PGS Software",
       period: "01.2019 – obecnie",
       summary:
-        "Senior Frontend Developer w projektach e-commerce, płatności i compliance. W obecnym projekcie e-commerce pełnię rolę Tech Leada i współpracuję z zespołami CRO/SEO. Poprowadziłem migrację Akamai→Contentful z użyciem agentów AI oraz zbudowałem bibliotekę płatniczą (3D Secure, Apple Pay). Ciekawostka: pół roku pracowałem w projekcie z pełnym, całodniowym pair programmingiem.",
+        "Senior Frontend Developer w projektach e-commerce i compliance. W obecnym projekcie e-commerce pełnię rolę Tech Leada i współpracuję z zespołami CRO/SEO. Przeprowadziłem migrację przekierowań z Akamai Cloudlet do Contentful z użyciem agentów AI. Z ciekawych projektów — pół roku pracowałem w projekcie z pełnym, całodniowym pair programmingiem przy dużej platformie e-commerce z branży turystycznej.",
       tags: [
         "React",
         "Next.js",
@@ -96,7 +107,7 @@ const career: Record<Locale, CareerEntry[]> = {
       company: "Xebia / PGS Software",
       period: "01.2019 – present",
       summary:
-        "Senior Frontend Developer across e-commerce, payments, and compliance projects. On the current e-commerce project I'm Tech Lead and work closely with CRO/SEO teams. I led the Akamai→Contentful migration using AI agents and built a payment library (3D Secure, Apple Pay). Fun fact: I spent six months on a project doing full-day pair programming.",
+        "Senior Frontend Developer across e-commerce and compliance projects. On the current e-commerce project I'm Tech Lead and work closely with CRO/SEO teams. I carried out a redirect migration from Akamai Cloudlet to Contentful using AI agents. One highlight: six months on a large travel-industry e-commerce platform with full-day pair programming.",
       tags: [
         "React",
         "Next.js",
@@ -211,4 +222,8 @@ export function getLanguages(locale: Locale): Language[] {
 
 export function getCertifications(locale: Locale): Certification[] {
   return certifications[locale];
+}
+
+export function getEcosystem(): EcosystemItem[] {
+  return ecosystem;
 }

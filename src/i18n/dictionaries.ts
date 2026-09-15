@@ -11,6 +11,7 @@ export type Dictionary = {
     educationLabel: string;
     languagesLabel: string;
     certificationsLabel: string;
+    ecosystemLabel: string;
   };
   blog: {
     title: string;
@@ -49,6 +50,7 @@ const pl: Dictionary = {
     educationLabel: "Wykształcenie",
     languagesLabel: "Języki obce",
     certificationsLabel: "Certyfikaty",
+    ecosystemLabel: "Środowisko pracy",
   },
   blog: {
     title: "Blog",
@@ -89,6 +91,7 @@ const en: Dictionary = {
     educationLabel: "Education",
     languagesLabel: "Languages",
     certificationsLabel: "Certifications",
+    ecosystemLabel: "Working environment",
   },
   blog: {
     title: "Blog",

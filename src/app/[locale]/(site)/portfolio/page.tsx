@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { TimelineSplit } from "@/components/career/timeline-split";
-import { getCareer, getCertifications, getEducation, getLanguages } from "@/content/career";
+import { getCareer, getCertifications, getEcosystem, getEducation, getLanguages } from "@/content/career";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { pageMetadata } from "@/i18n/metadata";
@@ -28,6 +28,7 @@ export default async function PortfolioPage({ params }: { params: Promise<{ loca
   const education = getEducation(locale);
   const languages = getLanguages(locale);
   const certifications = getCertifications(locale);
+  const ecosystem = getEcosystem();
 
   return (
     <div className="flex flex-col gap-10">
@@ -43,6 +44,8 @@ export default async function PortfolioPage({ params }: { params: Promise<{ loca
           languagesLabel={dict.portfolio.languagesLabel}
           certifications={certifications}
           certificationsLabel={dict.portfolio.certificationsLabel}
+          ecosystem={ecosystem}
+          ecosystemLabel={dict.portfolio.ecosystemLabel}
         />
       </div>
     </div>
