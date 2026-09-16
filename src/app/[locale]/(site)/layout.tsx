@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { ContentWindowBold } from "@/components/content-window";
+import { Cookies } from "@/components/cookies";
 import { ParticleField } from "@/components/particle-field";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -33,6 +34,7 @@ export default async function SiteLayout({
       </main>
 
       <SiteFooter />
+      <Cookies dict={dict} />
     </div>
   );
 }

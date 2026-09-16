@@ -37,6 +37,11 @@ export type Dictionary = {
     kontaktTitle: string;
     kontaktDescription: string;
   };
+  cookies: {
+    message: string;
+    accept: string;
+    reject: string;
+  };
 };
 
 const pl: Dictionary = {
@@ -78,6 +83,11 @@ const pl: Dictionary = {
     kontaktTitle: "Kontakt",
     kontaktDescription: "Skontaktuj się z Grzegorzem Martowskim — Senior Frontend Engineer / Tech Lead specjalizującym się w e-commerce.",
   },
+  cookies: {
+    message: "Używamy plików cookie do analityki odwiedzin strony. Możesz zaakceptować lub odrzucić.",
+    accept: "Akceptuję",
+    reject: "Odrzuć",
+  },
 };
 
 const en: Dictionary = {
@@ -118,6 +128,11 @@ const en: Dictionary = {
     blogDescription: "Technical notes on React, Next.js, e-commerce, and working with AI in day-to-day development.",
     kontaktTitle: "Contact",
     kontaktDescription: "Get in touch with Grzegorz Martowski — Senior Frontend Engineer / Tech Lead specializing in e-commerce.",
+  },
+  cookies: {
+    message: "We use cookies for site visit analytics. You can accept or decline.",
+    accept: "Accept",
+    reject: "Decline",
   },
 };
 
