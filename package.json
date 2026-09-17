@@ -27,7 +27,7 @@
     "lucide-react": "^1.41.0",
     "next": "16.3.4",
     "next-sanity": "^13.3.4",
-    "react": "19.2.8",
+    "react": "19.3.0",
     "react-dom": "19.2.8",
     "sanity": "^6.12.0",
     "shadcn": "^4.21.0",
