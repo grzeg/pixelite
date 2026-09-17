@@ -31,6 +31,14 @@ export default defineConfig({
           },
         },
       },
+      {
+        test: {
+          // Plain logic (i18n helpers, middleware rules, etc.) — no browser needed.
+          name: 'unit',
+          environment: 'node',
+          include: ['src/**/*.test.ts'],
+        },
+      },
     ],
   },
 });
