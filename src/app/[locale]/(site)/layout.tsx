@@ -24,7 +24,12 @@ export default async function SiteLayout({
   return (
     <div className="relative min-h-dvh w-full bg-brand-orange">
       <div className="fixed inset-0">
-        <ParticleField className="absolute inset-0" count={70} particleColor="rgba(255, 255, 255, 0.85)" lineColorRgb="255, 255, 255" />
+        <ParticleField
+          className="absolute inset-0"
+          count={70}
+          particleColor="rgba(255, 255, 255, 0.85)"
+          lineColorRgb="255, 255, 255"
+        />
       </div>
 
       <SiteHeader locale={locale} dict={dict} />

@@ -2,7 +2,13 @@ import { Apple } from "lucide-react";
 import { siClaudecode, siJetbrains } from "simple-icons";
 
 import { Badge } from "@/components/ui/badge";
-import type { CareerEntry, Certification, Education, EcosystemItem, Language } from "@/content/career";
+import type {
+  CareerEntry,
+  Certification,
+  Education,
+  EcosystemItem,
+  Language,
+} from "@/content/career";
 
 function BrandIcon({ path, className }: { path: string; className?: string }) {
   return (
@@ -96,7 +102,9 @@ export function TimelineSplit({
 
       <div className="grid grid-cols-1 gap-5 border-t border-border pt-4 sm:grid-cols-4">
         <div>
-          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">{educationLabel}</p>
+          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            {educationLabel}
+          </p>
           <p className="mb-1.5 text-sm">{education.school}</p>
           <ul className="flex flex-col gap-2">
             {education.degrees.map((entry) => (
@@ -111,7 +119,9 @@ export function TimelineSplit({
           </ul>
         </div>
         <div>
-          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">{languagesLabel}</p>
+          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            {languagesLabel}
+          </p>
           <ul className="flex flex-col gap-1.5">
             {languages.map((lang) => (
               <li key={lang.name} className="flex items-baseline gap-1.5 text-xs">
@@ -125,7 +135,9 @@ export function TimelineSplit({
           </ul>
         </div>
         <div>
-          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">{certificationsLabel}</p>
+          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            {certificationsLabel}
+          </p>
           <ul className="flex flex-col gap-2">
             {certifications.map((cert) => (
               <li key={cert.name} className="flex items-start gap-1.5 text-xs">
@@ -139,7 +151,9 @@ export function TimelineSplit({
           </ul>
         </div>
         <div>
-          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">{ecosystemLabel}</p>
+          <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            {ecosystemLabel}
+          </p>
           <ul className="flex flex-col gap-2">
             {ecosystem.map((item) => (
               <li key={item.label} className="flex items-center gap-1.5 text-xs">

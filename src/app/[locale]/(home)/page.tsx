@@ -63,16 +63,37 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </nav>
 
       <div className="relative z-10 flex min-h-dvh flex-col items-center justify-center gap-6 px-6 text-center">
-        <Image src="/brand/logo-symbol.svg" alt={siteConfig.name} width={140} height={161} className="h-24 w-auto sm:h-32" priority />
-        <h1 className="text-2xl font-semibold tracking-[0.2em] text-white uppercase sm:text-3xl">{siteConfig.name}</h1>
+        <Image
+          src="/brand/logo-symbol.svg"
+          alt={siteConfig.name}
+          width={140}
+          height={161}
+          className="h-24 w-auto sm:h-32"
+          priority
+        />
+        <h1 className="text-2xl font-semibold tracking-[0.2em] text-white uppercase sm:text-3xl">
+          {siteConfig.name}
+        </h1>
         <p className="max-w-md text-sm text-white/80">{dict.home.tagline}</p>
       </div>
 
       <div aria-label="Social media" className={`absolute bottom-6 left-6 z-20 ${CORNER_CLUSTER}`}>
-        <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:opacity-80">
+        <a
+          href={siteConfig.linkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="hover:opacity-80"
+        >
           <LinkedinIcon className="size-5" />
         </a>
-        <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:opacity-80">
+        <a
+          href={siteConfig.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="hover:opacity-80"
+        >
           <GithubIcon className="size-5" />
         </a>
         <a href={`mailto:${siteConfig.email}`} aria-label="E-mail" className="hover:opacity-80">

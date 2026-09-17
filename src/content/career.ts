@@ -76,7 +76,8 @@ const career: Record<Locale, CareerEntry[]> = {
       role: "Freelance Web Developer",
       company: "Pixelite",
       period: "10.2014 – 12.2018",
-      summary: "Własna działalność (obok etatu w Avra) — strony dla klientów, bezpośrednia współpraca z klientami i grafikami.",
+      summary:
+        "Własna działalność (obok etatu w Avra) — strony dla klientów, bezpośrednia współpraca z klientami i grafikami.",
       tags: ["WordPress", "HTML/CSS", "Photoshop"],
     },
     {
@@ -140,7 +141,8 @@ const career: Record<Locale, CareerEntry[]> = {
       role: "Freelance Web Developer",
       company: "Pixelite",
       period: "10.2014 – 12.2018",
-      summary: "Own freelance practice (alongside the Avra role) — client websites, direct client and designer collaboration.",
+      summary:
+        "Own freelance practice (alongside the Avra role) — client websites, direct client and designer collaboration.",
       tags: ["WordPress", "HTML/CSS", "Photoshop"],
     },
     {

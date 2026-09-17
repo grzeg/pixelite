@@ -16,8 +16,19 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
 
   return (
     <>
-      <Link href={`/${locale}`} aria-label={siteConfig.name} className="fixed top-6 left-6 z-20 flex items-center hover:opacity-80">
-        <Image src="/brand/logo-symbol.svg" alt={siteConfig.name} width={40} height={46} className="h-8 w-auto" priority />
+      <Link
+        href={`/${locale}`}
+        aria-label={siteConfig.name}
+        className="fixed top-6 left-6 z-20 flex items-center hover:opacity-80"
+      >
+        <Image
+          src="/brand/logo-symbol.svg"
+          alt={siteConfig.name}
+          width={40}
+          height={46}
+          className="h-8 w-auto"
+          priority
+        />
       </Link>
 
       <nav aria-label={dict.nav.main} className={`fixed top-6 right-6 z-20 ${CORNER_CLUSTER}`}>
