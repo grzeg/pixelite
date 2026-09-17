@@ -1,4 +1,5 @@
 {
+  "maxEffortLevel": "medium",
   "enabledPlugins": {
     "caveman@caveman": true
   },
