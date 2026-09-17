@@ -25,7 +25,11 @@ const getPost = cache(async (slug: string, language: Locale) =>
   client.fetch<Post | null>(POST_QUERY, { slug, language }).catch(() => null),
 );
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
 
@@ -41,7 +45,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
   const { locale, slug } = await params;
   if (!isLocale(locale)) {
     notFound();

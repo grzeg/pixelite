@@ -55,7 +55,9 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
             <li key={post._id}>
               <Link href={`/${locale}/blog/${post.slug.current}`} className="block">
                 <h2 className="font-medium hover:underline">{post.title}</h2>
-                {post.excerpt ? <p className="text-sm text-muted-foreground">{post.excerpt}</p> : null}
+                {post.excerpt ? (
+                  <p className="text-sm text-muted-foreground">{post.excerpt}</p>
+                ) : null}
               </Link>
             </li>
           ))}

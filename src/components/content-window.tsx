@@ -31,7 +31,9 @@ export function ContentWindowBold({ children }: { children: React.ReactNode }) {
           <span className="size-3 rounded-full bg-[#ffbd2e]" />
           <span className="size-3 rounded-full bg-[#27c93f]" />
         </div>
-        <div className="rounded-t-md bg-white/10 px-3 py-1 font-mono text-xs text-white/80">{fileLabel(pathname)}</div>
+        <div className="rounded-t-md bg-white/10 px-3 py-1 font-mono text-xs text-white/80">
+          {fileLabel(pathname)}
+        </div>
       </div>
       <div className="px-6 py-10 sm:px-10 sm:py-12">{children}</div>
     </div>

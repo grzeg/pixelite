@@ -79,12 +79,15 @@ const pl: Dictionary = {
     portfolioDescription:
       "Portfolio i przebieg kariery Grzegorza Martowskiego — Senior Frontend Engineer / Tech Lead, 15 lat w e-commerce i React/TypeScript.",
     blogTitle: "Blog",
-    blogDescription: "Notatki techniczne o React, Next.js, e-commerce i pracy z AI w codziennym developmencie.",
+    blogDescription:
+      "Notatki techniczne o React, Next.js, e-commerce i pracy z AI w codziennym developmencie.",
     kontaktTitle: "Kontakt",
-    kontaktDescription: "Skontaktuj się z Grzegorzem Martowskim — Senior Frontend Engineer / Tech Lead specjalizującym się w e-commerce.",
+    kontaktDescription:
+      "Skontaktuj się z Grzegorzem Martowskim — Senior Frontend Engineer / Tech Lead specjalizującym się w e-commerce.",
   },
   cookies: {
-    message: "Używamy plików cookie do analityki odwiedzin strony. Możesz zaakceptować lub odrzucić.",
+    message:
+      "Używamy plików cookie do analityki odwiedzin strony. Możesz zaakceptować lub odrzucić.",
     accept: "Akceptuję",
     reject: "Odrzuć",
   },
@@ -113,7 +116,8 @@ const en: Dictionary = {
     intro: "Easiest way: send an email or find me on LinkedIn.",
     location: "Wrocław, Poland · CET",
     responseTime: "I usually reply within 24–48 hours.",
-    openTo: "Open to conversations about Senior/Staff Engineer and Tech Lead roles at product companies.",
+    openTo:
+      "Open to conversations about Senior/Staff Engineer and Tech Lead roles at product companies.",
     emailButton: "Send email",
     cvButton: "Download CV (PDF)",
   },
@@ -125,9 +129,11 @@ const en: Dictionary = {
     portfolioDescription:
       "Portfolio and career history of Grzegorz Martowski — Senior Frontend Engineer / Tech Lead, 15 years in e-commerce and React/TypeScript.",
     blogTitle: "Blog",
-    blogDescription: "Technical notes on React, Next.js, e-commerce, and working with AI in day-to-day development.",
+    blogDescription:
+      "Technical notes on React, Next.js, e-commerce, and working with AI in day-to-day development.",
     kontaktTitle: "Contact",
-    kontaktDescription: "Get in touch with Grzegorz Martowski — Senior Frontend Engineer / Tech Lead specializing in e-commerce.",
+    kontaktDescription:
+      "Get in touch with Grzegorz Martowski — Senior Frontend Engineer / Tech Lead specializing in e-commerce.",
   },
   cookies: {
     message: "We use cookies for site visit analytics. You can accept or decline.",

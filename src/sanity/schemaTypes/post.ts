@@ -9,7 +9,12 @@ export const post = defineType({
       name: "language",
       title: "Język",
       type: "string",
-      options: { list: [{ title: "Polski", value: "pl" }, { title: "English", value: "en" }] },
+      options: {
+        list: [
+          { title: "Polski", value: "pl" },
+          { title: "English", value: "en" },
+        ],
+      },
       validation: (rule) => rule.required(),
       initialValue: "pl",
     }),

@@ -4,7 +4,11 @@ module.exports = {
       startServerCommand: "pnpm start",
       startServerReadyPattern: "Ready in",
       startServerReadyTimeout: 30000,
-      url: ["http://localhost:3000/pl", "http://localhost:3000/pl/portfolio", "http://localhost:3000/pl/kontakt"],
+      url: [
+        "http://localhost:3000/pl",
+        "http://localhost:3000/pl/portfolio",
+        "http://localhost:3000/pl/kontakt",
+      ],
       numberOfRuns: 3,
     },
     assert: {

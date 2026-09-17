@@ -42,7 +42,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       </div>
 
       <div className="flex flex-col gap-3 sm:flex-row">
-        <a href={`mailto:${siteConfig.email}`} className={cn(buttonVariants({ variant: "default" }))}>
+        <a
+          href={`mailto:${siteConfig.email}`}
+          className={cn(buttonVariants({ variant: "default" }))}
+        >
           {dict.kontakt.emailButton}
         </a>
         <a

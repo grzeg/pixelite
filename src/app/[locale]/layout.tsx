@@ -27,7 +27,11 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
 
@@ -64,7 +68,10 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale} className={`${montserrat.variable} ${geistMono.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${montserrat.variable} ${geistMono.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         {gaId ? (
           <>
@@ -81,7 +88,10 @@ export default async function LocaleLayout({
                 });
               `}
             </Script>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
             <Script id="ga-init" strategy="afterInteractive">
               {`
                 gtag('js', new Date());

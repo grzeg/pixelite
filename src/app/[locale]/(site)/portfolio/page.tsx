@@ -1,7 +1,13 @@
 import { notFound } from "next/navigation";
 
 import { TimelineSplit } from "@/components/career/timeline-split";
-import { getCareer, getCertifications, getEcosystem, getEducation, getLanguages } from "@/content/career";
+import {
+  getCareer,
+  getCertifications,
+  getEcosystem,
+  getEducation,
+  getLanguages,
+} from "@/content/career";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { pageMetadata } from "@/i18n/metadata";
@@ -35,7 +41,9 @@ export default async function PortfolioPage({ params }: { params: Promise<{ loca
       <h1 className="text-2xl font-medium">{dict.portfolio.title}</h1>
 
       <div>
-        <h2 className="mb-4 text-sm font-medium tracking-wide text-muted-foreground uppercase">{dict.portfolio.experienceLabel}</h2>
+        <h2 className="mb-4 text-sm font-medium tracking-wide text-muted-foreground uppercase">
+          {dict.portfolio.experienceLabel}
+        </h2>
         <TimelineSplit
           entries={career}
           education={education}

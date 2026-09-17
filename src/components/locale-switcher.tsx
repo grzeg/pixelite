@@ -12,7 +12,11 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
   const href = `/${other}${rest ? `/${rest}` : ""}`;
 
   return (
-    <Link href={href} className="hover:opacity-80" aria-label={other === "pl" ? "Polski" : "English"}>
+    <Link
+      href={href}
+      className="hover:opacity-80"
+      aria-label={other === "pl" ? "Polski" : "English"}
+    >
       {other.toUpperCase()}
     </Link>
   );
