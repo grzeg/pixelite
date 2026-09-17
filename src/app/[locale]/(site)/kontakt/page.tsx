@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 const displayUrl = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 const cvHref: Record<Locale, string> = {
-  pl: "/cv/grzegorz-martowski-pl.pdf",
-  en: "/cv/grzegorz-martowski-en.pdf",
+  pl: "/cv/Grzegorz_Martowski_CV_Senior_FE_Developer_PL.pdf",
+  en: "/cv/Grzegorz_Martowski_CV_Senior_FE_Developer_EN.pdf",
 };
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
