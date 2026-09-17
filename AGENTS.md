@@ -44,6 +44,11 @@ Przed uznaniem zadania za skończone zawsze uruchom `pnpm test` (odpala oba proj
 - W czacie: zwięźle, bez lania wody, bez grzecznościowych zwrotów — meritum, nie fluff. Nie dotyczy kodu, commitów i opisów PR — te zawsze pełnym, poprawnym językiem.
 - Nie skracaj kosztem treści technicznej — liczby, nazwy plików, konkretne komendy zawsze zostają.
 
+## Commit messages
+- Konwencja: [Conventional Commits](https://www.conventionalcommits.org/) — prefiks `feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `test:`, `ci:`. Subject po angielsku, tryb rozkazujący, bez kropki na końcu.
+- Body tylko gdy "why" nieoczywiste z samego diffu (nie opisuj "co" — to widać w kodzie).
+- Skill `/caveman-commit` generuje message w tym samym formacie (Conventional Commits, ultra-skompresowany) — użyj go swobodnie, nie zastępuje tej konwencji, tylko ją realizuje szybciej.
+
 ## Priorytety projektowe
 1. Strona główna = router do 3 ścieżek (Portfolio, Blog, Kontakt/sociale), nie CV. Krótka, szybka, minimalistyczna.
 2. Portfolio to najważniejsza ścieżka — traktuj ją priorytetowo względem bloga i innych podstron.
