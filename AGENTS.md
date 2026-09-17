@@ -8,7 +8,7 @@ Brief marketingowy/treściowy: [docs/brand-brief.md](docs/brand-brief.md) — cz
 - Next.js (App Router) + TypeScript (strict)
 - Tailwind CSS
 - shadcn/ui — komponenty bazowe, nie budować własnego design systemu od zera
-- Sanity (headless CMS) — treść bloga (`/studio`, `src/sanity/`)
+- Sanity (headless CMS) — treść bloga (`/studio`, `src/sanity/`). Sanity MCP podłączony w [.mcp.json](.mcp.json) — agent może odpytywać schema/dataset przez GROQ bez kopiowania kodu do kontekstu (autoryzacja OAuth per-user, nie sekret w repo).
 - Storybook — dokumentacja i testy (vitest + play functions) komponentów UI
 - Deploy: Vercel
 
@@ -24,8 +24,25 @@ Strona jest dwujęzyczna, routing `/pl/...` i `/en/...` (`src/app/[locale]/`, `s
 - `middleware.ts` musi być w `src/`, nie w roocie repo (bo projekt używa katalogu `src/`) — inaczej Next.js go cicho ignoruje.
 - Treść portfolio jest per-locale w [src/content/portfolio.ts](src/content/portfolio.ts) (`Record<Locale, PortfolioEntry[]>`) — każdy nowy wpis dodaj w obu językach.
 
-## Storybook
-Dla każdego nowego reużywalnego komponentu UI (`src/components/ui/*`, współdzielone komponenty jak `SiteHeader`) dodaj kolokowany `*.stories.tsx`. Wzorzec i zasady (tagi `ai-generated`/`needs-work`, dokładnie jeden `CssCheck` na projekt, kiedy pisać `play`) zgodnie z tym, co ustawił `npx storybook skills setup` — sprawdź istniejące pliki w `src/components/**/*.stories.tsx` jako wzór. Po dodaniu story uruchom `npx vitest --project storybook run` przed uznaniem zadania za skończone.
+## Storybook i testy
+Dla każdego nowego reużywalnego komponentu UI (`src/components/ui/*`, współdzielone komponenty jak `SiteHeader`) dodaj kolokowany `*.stories.tsx` — bez wyjątków, nawet dla "prostych" komponentów (np. banera). To wymóg, nie sugestia: jeśli go pominiesz, nikt inny tego nie złapie automatycznie. Wzorzec i zasady (tagi `ai-generated`/`needs-work`, dokładnie jeden `CssCheck` na projekt, kiedy pisać `play`) zgodnie z tym, co ustawił `npx storybook skills setup` — sprawdź istniejące pliki w `src/components/**/*.stories.tsx` jako wzór.
+
+Dla czystej logiki bez UI (helpery w `src/lib/`, `src/i18n/`, reguły w middleware) dodaj kolokowany `*.test.ts` — osobny projekt `unit` w [vitest.config.ts](vitest.config.ts) (node, bez przeglądarki), wzór w [src/i18n/config.test.ts](src/i18n/config.test.ts).
+
+Przed uznaniem zadania za skończone zawsze uruchom `pnpm test` (odpala oba projekty: `storybook` + `unit`).
+
+## Deploy i CI
+- Deploy: Vercel, auto-build z każdego push/PR. `next build` sam gate'uje lint (`eslint-config-next`) i typy (`tsc`) — build failuje jeśli któreś nie przejdzie, nic dodatkowego nie trzeba w repo konfigurować pod to.
+- Vercel NIE odpala `vitest` (ani Storybook, ani unit testów) — to robi [.github/workflows/ci.yml](.github/workflows/ci.yml) jako wymagany check na PR (`pnpm lint`, `tsc --noEmit`, `pnpm test`). Traktuj czerwony CI tak samo jak czerwony build na Vercelu — nie mergować.
+- Zmienne środowiskowe (`NEXT_PUBLIC_SANITY_*`, `NEXT_PUBLIC_GA_ID`) ustawia się w dashboardzie Vercela (per environment: Production/Preview), nie w repo — `.env.local.example` to tylko wzór dla lokalnego dev.
+
+## Model routing (agent AI)
+- Boilerplate, `*.stories.tsx`, `*.test.ts`, mechaniczne rename/refaktor — tani/szybki model wystarcza.
+- Decyzje architektoniczne, i18n routing, integracja z Sanity/CMS, cokolwiek dotykające `middleware.ts` lub struktury `[locale]` — mocniejszy model, tu błąd kosztuje więcej niż oszczędność.
+
+## Styl komunikacji agenta
+- W czacie: zwięźle, bez lania wody, bez grzecznościowych zwrotów — meritum, nie fluff. Nie dotyczy kodu, commitów i opisów PR — te zawsze pełnym, poprawnym językiem.
+- Nie skracaj kosztem treści technicznej — liczby, nazwy plików, konkretne komendy zawsze zostają.
 
 ## Priorytety projektowe
 1. Strona główna = router do 3 ścieżek (Portfolio, Blog, Kontakt/sociale), nie CV. Krótka, szybka, minimalistyczna.
@@ -51,3 +68,7 @@ Dla każdego nowego reużywalnego komponentu UI (`src/components/ui/*`, współd
 - Nie publikuj (deploy, push do zdalnego repo) bez wyraźnej zgody usera na dany krok.
 - Nie zmieniaj ustalonego stacku, IA (3 ścieżki z głównej) ani zasad anonimizacji klientów bez pytania — to decyzje usera, nie agenta.
 - Przy niejasności co do treści (dane liczbowe, nazwy klientów, zdjęcia) — pytaj usera, nie zgaduj.
+
+Kiedy decydować samemu, a kiedy pytać:
+- **Decyduj sam, bez pytania**: treść commit message, nazwy branchy, drobne konwencje kodu (formatowanie, nazwy zmiennych/plików) w ramach ustalonego stacku.
+- **Pytaj, gdy jest więcej niż jedno rozsądne podejście**: wybór konkretnego wzorca/hooka/podejścia w ramach ustalonego stacku (np. który komponent shadcn, jak rozbić plik na moduły) — jeśli nie ma jednego oczywistego rozwiązania, zatrzymaj się i zapytaj zamiast zgadywać.
