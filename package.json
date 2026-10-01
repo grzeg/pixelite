@@ -21,7 +21,7 @@
     "@portabletext/react": "^8.0.1",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^6.12.0",
-    "@sentry/nextjs": "^10.74.0",
+    "@sentry/nextjs": "^11.1.0",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.2.6",
     "lucide-react": "^1.41.0",
