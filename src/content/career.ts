@@ -39,11 +39,11 @@ const ecosystem: EcosystemItem[] = [
 const career: Record<Locale, CareerEntry[]> = {
   pl: [
     {
-      role: "Senior Frontend Developer / Tech Lead",
+      role: "Senior Frontend Developer",
       company: "Xebia / PGS Software",
       period: "01.2019 – obecnie",
       summary:
-        "Senior Frontend Developer w projektach e-commerce i compliance. W obecnym projekcie e-commerce pełnię rolę Tech Leada i współpracuję z zespołami CRO/SEO. Przeprowadziłem migrację przekierowań z Akamai Cloudlet do Contentful z użyciem agentów AI. Z ciekawych projektów — pół roku pracowałem w projekcie z pełnym, całodniowym pair programmingiem przy dużej platformie e-commerce z branży turystycznej.",
+        "Senior Frontend Developer w projektach e-commerce i compliance. W obecnym projekcie e-commerce współpracuję z zespołami CRO/SEO. Przeprowadziłem migrację przekierowań z Akamai Cloudlet do Contentful z użyciem agentów AI. Z ciekawych projektów — pół roku pracowałem w projekcie z pełnym, całodniowym pair programmingiem przy dużej platformie e-commerce z branży turystycznej.",
       tags: [
         "React",
         "Next.js",
@@ -104,11 +104,11 @@ const career: Record<Locale, CareerEntry[]> = {
   ],
   en: [
     {
-      role: "Senior Frontend Developer / Tech Lead",
+      role: "Senior Frontend Developer",
       company: "Xebia / PGS Software",
       period: "01.2019 – present",
       summary:
-        "Senior Frontend Developer across e-commerce and compliance projects. On the current e-commerce project I'm Tech Lead and work closely with CRO/SEO teams. I carried out a redirect migration from Akamai Cloudlet to Contentful using AI agents. One highlight: six months on a large travel-industry e-commerce platform with full-day pair programming.",
+        "Senior Frontend Developer across e-commerce and compliance projects. On the current e-commerce project I work closely with CRO/SEO teams. I carried out a redirect migration from Akamai Cloudlet to Contentful using AI agents. One highlight: six months on a large travel-industry e-commerce platform with full-day pair programming.",
       tags: [
         "React",
         "Next.js",

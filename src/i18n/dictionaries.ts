@@ -47,7 +47,7 @@ export type Dictionary = {
 const pl: Dictionary = {
   nav: { main: "Główna", portfolio: "Portfolio", blog: "Blog", kontakt: "Kontakt" },
   home: {
-    tagline: "Senior Frontend Engineer, Tech Lead, AI-native developer",
+    tagline: "Senior Frontend Engineer, AI-native developer",
   },
   portfolio: {
     title: "Portfolio",
@@ -67,23 +67,23 @@ const pl: Dictionary = {
     intro: "Najprościej: napisz maila albo znajdź mnie na LinkedIn.",
     location: "Wrocław, Polska · CET",
     responseTime: "Zwykle odpowiadam w ciągu 24–48h.",
-    openTo: "Otwarty na rozmowy o rolach Senior/Staff Engineer i Tech Lead w firmach produktowych.",
+    openTo: "Otwarty na rozmowy o rolach Senior Frontend Engineer w firmach produktowych.",
     emailButton: "Napisz e-mail",
     cvButton: "Pobierz CV (PDF)",
   },
   meta: {
     homeTitle: "Pixelite",
     homeDescription:
-      "Grzegorz Martowski — Senior Frontend Engineer / Tech Lead. 15 lat doświadczenia w e-commerce, płatnościach i React/Next.js/TypeScript.",
+      "Grzegorz Martowski — Senior Frontend Engineer. 15 lat doświadczenia w e-commerce, płatnościach i React/Next.js/TypeScript.",
     portfolioTitle: "Portfolio",
     portfolioDescription:
-      "Portfolio i przebieg kariery Grzegorza Martowskiego — Senior Frontend Engineer / Tech Lead, 15 lat w e-commerce i React/TypeScript.",
+      "Portfolio i przebieg kariery Grzegorza Martowskiego — Senior Frontend Engineer, 15 lat w e-commerce i React/TypeScript.",
     blogTitle: "Blog",
     blogDescription:
       "Notatki techniczne o React, Next.js, e-commerce i pracy z AI w codziennym developmencie.",
     kontaktTitle: "Kontakt",
     kontaktDescription:
-      "Skontaktuj się z Grzegorzem Martowskim — Senior Frontend Engineer / Tech Lead specjalizującym się w e-commerce.",
+      "Skontaktuj się z Grzegorzem Martowskim — Senior Frontend Engineer specjalizującym się w e-commerce.",
   },
   cookies: {
     message:
@@ -96,7 +96,7 @@ const pl: Dictionary = {
 const en: Dictionary = {
   nav: { main: "Main", portfolio: "Portfolio", blog: "Blog", kontakt: "Contact" },
   home: {
-    tagline: "Senior Frontend Engineer, Tech Lead, AI-native developer",
+    tagline: "Senior Frontend Engineer, AI-native developer",
   },
   portfolio: {
     title: "Portfolio",
@@ -116,24 +116,23 @@ const en: Dictionary = {
     intro: "Easiest way: send an email or find me on LinkedIn.",
     location: "Wrocław, Poland · CET",
     responseTime: "I usually reply within 24–48 hours.",
-    openTo:
-      "Open to conversations about Senior/Staff Engineer and Tech Lead roles at product companies.",
+    openTo: "Open to conversations about Senior Frontend Engineer roles at product companies.",
     emailButton: "Send email",
     cvButton: "Download CV (PDF)",
   },
   meta: {
     homeTitle: "Pixelite",
     homeDescription:
-      "Grzegorz Martowski — Senior Frontend Engineer / Tech Lead. 15 years of experience in e-commerce, payments, and React/Next.js/TypeScript.",
+      "Grzegorz Martowski — Senior Frontend Engineer. 15 years of experience in e-commerce, payments, and React/Next.js/TypeScript.",
     portfolioTitle: "Portfolio",
     portfolioDescription:
-      "Portfolio and career history of Grzegorz Martowski — Senior Frontend Engineer / Tech Lead, 15 years in e-commerce and React/TypeScript.",
+      "Portfolio and career history of Grzegorz Martowski — Senior Frontend Engineer, 15 years in e-commerce and React/TypeScript.",
     blogTitle: "Blog",
     blogDescription:
       "Technical notes on React, Next.js, e-commerce, and working with AI in day-to-day development.",
     kontaktTitle: "Contact",
     kontaktDescription:
-      "Get in touch with Grzegorz Martowski — Senior Frontend Engineer / Tech Lead specializing in e-commerce.",
+      "Get in touch with Grzegorz Martowski — Senior Frontend Engineer specializing in e-commerce.",
   },
   cookies: {
     message: "We use cookies for site visit analytics. You can accept or decline.",

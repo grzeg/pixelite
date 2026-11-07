@@ -4,7 +4,7 @@
 
 Budować wiarygodność wobec klientów i przede wszystkim **potencjalnych pracodawców**.
 
-Docelowa rola: **Senior/Staff Engineer w firmie produktowej**.
+Docelowa rola: **Senior Frontend Engineer w firmie produktowej**.
 Specjalizacja: **React/Next.js, TypeScript, e-commerce**.
 Motywacja: rozwijanie produktu użytecznego dla ludzi — nie samo „kodowanie feature'ów".
 
