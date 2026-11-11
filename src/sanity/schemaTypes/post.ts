@@ -25,6 +25,20 @@ export const post = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "mainImage",
+      title: "Miniaturka",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Tekst alternatywny",
+          type: "string",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
