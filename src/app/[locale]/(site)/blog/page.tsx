@@ -6,6 +6,9 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { pageMetadata } from "@/i18n/metadata";
 import { client, isSanityConfigured } from "@/sanity/client";
 import { POSTS_QUERY } from "@/sanity/queries";
+import Image from "next/image";
+import type { SanityImageSource } from "@sanity/image-url";
+import { urlForImage } from "@/sanity/image";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -25,6 +28,7 @@ type PostListItem = {
   slug: { current: string };
   excerpt?: string;
   publishedAt?: string;
+  mainImage?: SanityImageSource & { alt?: string };
 };
 
 export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -53,11 +57,25 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
         <ul className="flex flex-col gap-6">
           {posts.map((post) => (
             <li key={post._id}>
-              <Link href={`/${locale}/blog/${post.slug.current}`} className="block">
-                <h2 className="font-medium hover:underline">{post.title}</h2>
-                {post.excerpt ? (
-                  <p className="text-sm text-muted-foreground">{post.excerpt}</p>
+              <Link
+                href={`/${locale}/blog/${post.slug.current}`}
+                className="flex flex-col gap-4 sm:flex-row"
+              >
+                {post.mainImage ? (
+                  <Image
+                    src={urlForImage(post.mainImage).width(320).height(180).url()}
+                    alt={post.mainImage.alt ?? ""}
+                    width={320}
+                    height={180}
+                    className="h-auto w-full rounded-md object-cover sm:w-40"
+                  />
                 ) : null}
+                <div>
+                  <h2 className="font-medium hover:underline">{post.title}</h2>
+                  {post.excerpt ? (
+                    <p className="text-sm text-muted-foreground">{post.excerpt}</p>
+                  ) : null}
+                </div>
               </Link>
             </li>
           ))}
