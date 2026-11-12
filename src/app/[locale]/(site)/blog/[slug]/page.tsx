@@ -1,4 +1,6 @@
 import { PortableText, type PortableTextBlock } from "@portabletext/react";
+import type { SanityImageSource } from "@sanity/image-url";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
@@ -6,6 +8,7 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { pageMetadata } from "@/i18n/metadata";
 import { client } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
 import { POST_QUERY } from "@/sanity/queries";
 
 type Post = {
@@ -14,6 +17,7 @@ type Post = {
   slug: { current: string };
   excerpt?: string;
   publishedAt?: string;
+  mainImage?: SanityImageSource & { alt?: string };
   body?: PortableTextBlock[];
 };
 
@@ -71,6 +75,16 @@ export default async function BlogPostPage({
           </time>
         ) : null}
       </header>
+      {post.mainImage ? (
+        <Image
+          src={urlForImage(post.mainImage).width(1200).height(630).url()}
+          alt={post.mainImage.alt ?? ""}
+          width={1200}
+          height={630}
+          priority
+          className="h-auto w-full rounded-md object-cover"
+        />
+      ) : null}
       <div className="prose prose-neutral dark:prose-invert max-w-none">
         {post.body ? <PortableText value={post.body} /> : null}
       </div>
