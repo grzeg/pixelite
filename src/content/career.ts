@@ -5,6 +5,7 @@ export type CareerEntry = {
   company: string;
   period: string;
   summary: string;
+  highlights?: string[];
   tags?: string[];
   featured?: boolean;
 };
@@ -35,32 +36,42 @@ const ecosystem: EcosystemItem[] = [
   { label: "Claude Code", icon: "claude" },
 ];
 
-// Źródło: CV (PDF, PL/ENG) dostarczone przez usera. Chronologicznie od najnowszej.
+// Źródło prawdy: CV (public/cv/*.pdf). Każda zmiana w CV = zmiana tutaj. Chronologicznie od najnowszej.
 const career: Record<Locale, CareerEntry[]> = {
   pl: [
     {
       role: "Senior Frontend Developer",
-      company: "Xebia / PGS Software",
+      company: "Xebia (dawniej PGS Software)",
       period: "01.2019 – obecnie",
       summary:
-        "Senior Frontend Developer w projektach e-commerce i compliance. W obecnym projekcie e-commerce współpracuję z zespołami CRO/SEO. Przeprowadziłem migrację przekierowań z Akamai Cloudlet do Contentful z użyciem agentów AI. Z ciekawych projektów — pół roku pracowałem w projekcie z pełnym, całodniowym pair programmingiem przy dużej platformie e-commerce z branży turystycznej.",
+        "Ścieżka kariery: Frontend Developer (01.2019) → Senior Frontend Developer (10.2022). Praca w modelu usług dla klientów, zwykle w zespołach 4–5-osobowych: projekty w obszarach e-commerce (retail, turystyka), płatności, healthcare i compliance. Obecnie odpowiadam za kod oraz decyzje techniczne w obszarze funkcjonalności SEO i CRO w projekcie e-commerce (retail) w Next.js.",
+      highlights: [
+        "Biblioteka płatności (PCI): niezależna od frameworka implementacja płatności kartą w TypeScripcie (3D Secure, Apple Pay), zbudowana w dwuosobowym zespole.",
+        "Migracja 4000+ przekierowań (Akamai → Contentful): przekierowania dodają teraz sami użytkownicy CMS, bez angażowania wsparcia, SEO/CRO i DevOps.",
+        "Bezpieczeństwo zależności (Dependabot): wyeliminowane alerty w ok. 50 repozytoriach klienta, także we wspólnych bibliotekach frontendowych.",
+        "Wewnętrzna gildia React.js: od ponad roku jestem jej opiekunem i moderatorem (15–30+ uczestników z różnych projektów).",
+      ],
       tags: [
         "React",
-        "Next.js",
+        "Next.js (App Router)",
+        "React Server Components",
         "TypeScript",
-        "Tailwind CSS",
+        "Node.js (skrypty)",
         "Webpack Module Federation",
         "Storybook",
-        "Cypress",
         "Optimizely",
         "Datadog",
-        "Auth0",
-        "Turborepo",
-        "Claude Code",
+        "Hotjar",
+        "Lighthouse",
+        "Core Web Vitals",
         "Contentful",
         "Akamai",
-        "AI agents",
+        "PCI",
+        "3D Secure",
+        "Apple Pay",
         "SEO",
+        "CRO",
+        "Claude Code",
       ],
       featured: true,
     },
@@ -69,63 +80,68 @@ const career: Record<Locale, CareerEntry[]> = {
       company: "Avra sp. z o.o.",
       period: "10.2014 – 12.2018",
       summary:
-        "Przejście od full-stacku w PHP/Symfony do frontendu (jQuery, AngularJS, React). Rozwój platformy dla jednego z największych dostawców benefitów pracowniczych w Polsce.",
-      tags: ["PHP", "Symfony", "jQuery", "AngularJS", "React"],
+        "Rozwój i utrzymanie platformy jednego z największych dostawców benefitów pracowniczych w Polsce. Migracja frontendu z jQuery do React.js w nowej architekturze mikroserwisowej.",
+      tags: ["React", "JavaScript", "AngularJS", "jQuery", "HTML5", "CSS3", "PHP/Symfony", "Git"],
     },
     {
       role: "Freelance Web Developer",
       company: "Pixelite",
-      period: "10.2014 – 12.2018",
-      summary:
-        "Własna działalność (obok etatu w Avra) — strony dla klientów, bezpośrednia współpraca z klientami i grafikami.",
-      tags: ["WordPress", "HTML/CSS", "Photoshop"],
+      period: "06.2014 – 12.2018",
+      summary: "Własna działalność, równolegle z pracą w Avra.",
     },
     {
       role: "Junior Web Developer",
       company: "The Green Line",
-      period: "05.2014 – 12.2014",
-      summary: "PHP, Zend Framework, praca w międzynarodowym zespole.",
-      tags: ["PHP", "Zend Framework"],
+      period: "05.2014 – 10.2014",
+      summary: "Junior Web Developer.",
     },
     {
       role: "Junior Web Developer",
       company: "Funmedia",
       period: "10.2013 – 04.2014",
-      summary: "PHP, Zend Framework, MySQL.",
-      tags: ["PHP", "Zend Framework", "MySQL"],
+      summary: "Junior Web Developer.",
     },
     {
       role: "Junior Web Developer / Publisher",
       company: "Credit Suisse CoE Wrocław",
       period: "07.2012 – 04.2013",
-      summary: "Adobe CQ5, jQuery, HTML/CSS — strony dla klientów.",
-      tags: ["Adobe CQ5", "jQuery", "HTML/CSS"],
+      summary: "Junior Web Developer / Publisher.",
     },
   ],
   en: [
     {
       role: "Senior Frontend Developer",
-      company: "Xebia / PGS Software",
+      company: "Xebia (formerly PGS Software)",
       period: "01.2019 – present",
       summary:
-        "Senior Frontend Developer across e-commerce and compliance projects. On the current e-commerce project I work closely with CRO/SEO teams. I carried out a redirect migration from Akamai Cloudlet to Contentful using AI agents. One highlight: six months on a large travel-industry e-commerce platform with full-day pair programming.",
+        "Career progression: Frontend Developer (01.2019) → Senior Frontend Developer (10.2022). Client-services model, usually in teams of 4–5: projects in e-commerce (retail, travel), payments, healthcare and compliance. I currently own the codebase and technical decisions for SEO and CRO features on a retail e-commerce project in Next.js.",
+      highlights: [
+        "Payments library (PCI): a framework-agnostic card payment implementation in TypeScript (3D Secure, Apple Pay), built in a two-person team.",
+        "Migration of 4,000+ redirects (Akamai → Contentful): CMS users now add redirects themselves, without involving support, SEO/CRO or DevOps.",
+        "Dependency security (Dependabot): resolved security alerts across ~50 client repositories, including shared frontend libraries.",
+        "Internal React.js guild: lead and moderator for over a year (15–30+ attendees from various projects).",
+      ],
       tags: [
         "React",
-        "Next.js",
+        "Next.js (App Router)",
+        "React Server Components",
         "TypeScript",
-        "Tailwind CSS",
+        "Node.js (scripting)",
         "Webpack Module Federation",
         "Storybook",
-        "Cypress",
         "Optimizely",
         "Datadog",
-        "Auth0",
-        "Turborepo",
-        "Claude Code",
+        "Hotjar",
+        "Lighthouse",
+        "Core Web Vitals",
         "Contentful",
         "Akamai",
-        "AI agents",
+        "PCI",
+        "3D Secure",
+        "Apple Pay",
         "SEO",
+        "CRO",
+        "Claude Code",
       ],
       featured: true,
     },
@@ -134,37 +150,32 @@ const career: Record<Locale, CareerEntry[]> = {
       company: "Avra sp. z o.o.",
       period: "10.2014 – 12.2018",
       summary:
-        "Transitioned from full-stack PHP/Symfony to frontend (jQuery, AngularJS, React). Developed a platform for one of the largest employee benefits providers in Poland.",
-      tags: ["PHP", "Symfony", "jQuery", "AngularJS", "React"],
+        "Developed and maintained the platform of one of the largest employee benefits providers in Poland. Migrated the frontend from jQuery to React.js within a new microservice architecture.",
+      tags: ["React", "JavaScript", "AngularJS", "jQuery", "HTML5", "CSS3", "PHP/Symfony", "Git"],
     },
     {
       role: "Freelance Web Developer",
       company: "Pixelite",
-      period: "10.2014 – 12.2018",
-      summary:
-        "Own freelance practice (alongside the Avra role) — client websites, direct client and designer collaboration.",
-      tags: ["WordPress", "HTML/CSS", "Photoshop"],
+      period: "06.2014 – 12.2018",
+      summary: "Own freelance practice, concurrent with the Avra role.",
     },
     {
       role: "Junior Web Developer",
       company: "The Green Line",
-      period: "05.2014 – 12.2014",
-      summary: "PHP, Zend Framework, working in an international team.",
-      tags: ["PHP", "Zend Framework"],
+      period: "05.2014 – 10.2014",
+      summary: "Junior Web Developer.",
     },
     {
       role: "Junior Web Developer",
       company: "Funmedia",
       period: "10.2013 – 04.2014",
-      summary: "PHP, Zend Framework, MySQL.",
-      tags: ["PHP", "Zend Framework", "MySQL"],
+      summary: "Junior Web Developer.",
     },
     {
       role: "Junior Web Developer / Publisher",
       company: "Credit Suisse CoE Wrocław",
       period: "07.2012 – 04.2013",
-      summary: "Adobe CQ5, jQuery, HTML/CSS — client websites.",
-      tags: ["Adobe CQ5", "jQuery", "HTML/CSS"],
+      summary: "Junior Web Developer / Publisher.",
     },
   ],
 };
@@ -180,8 +191,8 @@ const education: Record<Locale, Education> = {
   en: {
     school: "Wrocław University of Science and Technology",
     degrees: [
-      { degree: "M.Sc. Eng., Telecommunications and IT", years: "2007–2012" },
-      { degree: "B.A., Management", years: "2010–2013" },
+      { degree: "MEng, Teleinformatics", years: "2007–2012" },
+      { degree: "Bachelor’s degree, Management", years: "2010–2013" },
     ],
   },
 };
@@ -201,12 +212,10 @@ const certifications: Record<Locale, Certification[]> = {
   pl: [
     { name: "Google Cloud Generative AI Leader", date: "06.2026" },
     { name: "Professional Scrum Master I (PSM I)", date: "10.2016" },
-    { name: "ACERT – Academic Certificate of English Language Competence", date: "06.2009" },
   ],
   en: [
     { name: "Google Cloud Generative AI Leader", date: "06.2026" },
     { name: "Professional Scrum Master I (PSM I)", date: "10.2016" },
-    { name: "ACERT – Academic Certificate of English Language Competence", date: "06.2009" },
   ],
 };
 

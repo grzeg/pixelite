@@ -66,6 +66,13 @@ export function TimelineSplit({
             </div>
             <p className="text-sm text-muted-foreground">{featured.company}</p>
             <p className="text-sm text-muted-foreground">{featured.summary}</p>
+            {featured.highlights ? (
+              <ul className="flex list-disc flex-col gap-1.5 pl-4 text-sm text-muted-foreground">
+                {featured.highlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            ) : null}
             {featured.tags ? (
               <div className="mt-1 flex flex-wrap gap-1.5">
                 {featured.tags.map((tag) => (
